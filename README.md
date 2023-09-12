@@ -32,4 +32,15 @@ WHERE UserID IN (SELECT UserID FROM Orders WHERE TotalAmount > 15);
 
 ![image](https://github.com/drtwej/sql1/assets/144841894/47b2770d-d3d0-4b81-8441-f294631e40e1)
 
+Запрос с сортировкой и группировкой:
+
+SELECT Users.FirstName, Users.LastName, Orders.OrderDate
+FROM Users
+JOIN Orders ON Users.UserID = Orders.UserID
+ORDER BY Orders.OrderDate DESC;
+
+
+![image](https://github.com/drtwej/sql1/assets/144841894/d0709458-2ee8-438d-a980-8202956ba4e0)
+
+
 
