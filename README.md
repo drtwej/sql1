@@ -27,5 +27,9 @@ ORDER BY Products.Price DESC;
 
 SELECT FirstName, LastName
 FROM Users
-WHERE UserID IN (SELECT UserID FROM Orders WHERE TotalAmount > 1000);
+WHERE UserID IN (SELECT UserID FROM Orders WHERE TotalAmount > 15);
+
+
+![image](https://github.com/drtwej/sql1/assets/144841894/47b2770d-d3d0-4b81-8441-f294631e40e1)
+
 
