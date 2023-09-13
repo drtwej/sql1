@@ -1,6 +1,6 @@
 
 ## 1 
-
+!["1.png"]
 insert into menu values (19,4,'cheese pizza', 700);
 insert into menu values (20,4,'mushroom pizza', 950);
 insert into menu values (21,4,'pepperoni pizza', 1000);
