@@ -1,4 +1,6 @@
- insert into menu values (19,4,'cheese pizza', 700);
+
+## 1 
+insert into menu values (19,4,'cheese pizza', 700);
 insert into menu values (20,4,'mushroom pizza', 950);
 insert into menu values (21,4,'pepperoni pizza', 1000);
 insert into menu values (22,4,'sausage pizza', 950);
@@ -44,5 +46,19 @@ insert into person_order values (27,7, 4, '2022-01-16');
 insert into person_order values (28,8, 8, '2022-01-17');
 insert into person_order values (29,8, 14, '2022-01-18');
 insert into person_order values (30,9, 18, '2022-01-19');
+
+
+insert into person values (16, 'Anna', 15, 'female', 'Voronej');
+insert into person values (17, 'Andrey', 26, 'male', 'Novgorod');
+insert into person values (18, 'Kate', 37, 'female', 'Kazan');
+insert into person values (19, 'Denis', 17, 'male', 'Kazan');
+insert into person values (20, 'Elvira', 45, 'female', 'Kazan');
+insert into person values (21, 'Irina', 21, 'female', 'Saint-Petersburg');
+insert into person values (22, 'Evgeniy', 24, 'male', 'Saint-Petersburg');
+insert into person values (23, 'Nataly', 30, 'female', 'Novosibirsk');
+insert into person values (24, 'Dmitriy', 18, 'male', 'Samara');
+insert into person values (25, 'Grigoriy', 18, 'male', 'Samara');
+
+
 
 
