@@ -66,5 +66,37 @@ insert into person values (24, 'Dmitriy', 18, 'male', 'Samara');
 insert into person values (25, 'Grigoriy', 18, 'male', 'Samara');
 ```
 
+##2 
+```
+SELECT ("name", "age", "address") FROM "person" WHERE "address" = 'Moscow'
+```
 
+##3 
 
+```
+SELECT ("name", "age", "address") FROM "person" WHERE "gender" = 'female' and "address" = 'Moscow' ORDER BY "name"
+```
+
+##4
+
+```
+SELECT ("name", "rating") FROM "pizzeria" WHERE "rating" >= 3.5 AND "rating" <= 5 ORDER BY "rating"
+SELECT ("name", "rating") FROM "pizzeria" WHERE "rating" BETWEEN 3.5 AND 5
+```
+
+##5
+
+```
+SELECT "id" FROM "person_visits" WHERE "visit_date" BETWEEN '2022-01-01' and '2022-01-06' OR "pizzeria_id" = 2 ORDER BY "id"
+```
+
+##6
+
+```
+SELECT "name" FROM "person" WHERE (SELECT "id" FROM "person_order" WHERE "menu_id" = 2) = "id"
+```
+
+##7
+```
+SELECT EXISTS (SELECT "id" FROM "person" WHERE "name" = 'Kate')
+```
