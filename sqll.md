@@ -1,6 +1,7 @@
 
 ## 1 
-!["1.png"]
+![]("1.png")
+```
 insert into menu values (19,4,'cheese pizza', 700);
 insert into menu values (20,4,'mushroom pizza', 950);
 insert into menu values (21,4,'pepperoni pizza', 1000);
@@ -11,7 +12,7 @@ insert into menu values (25,5,'bogata pizza', 1000);
 insert into menu values (26,5,'soreta pizza', 400);
 insert into menu values (27,5,'pajero pizza', 890);
 insert into menu values (28,5,'muchachos pizza', 850);
-
+```
 
 insert into pizzeria values (7,'Pizza Sony','4.2');
 insert into pizzeria values (8,'Pizza jony','4.7');
