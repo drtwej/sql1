@@ -14,6 +14,7 @@ insert into menu values (27,5,'pajero pizza', 890);
 insert into menu values (28,5,'muchachos pizza', 850);
 ```
 
+```
 insert into pizzeria values (7,'Pizza Sony','4.2');
 insert into pizzeria values (8,'Pizza jony','4.7');
 insert into pizzeria values (9,'Sinour','4.4');
@@ -24,8 +25,9 @@ insert into pizzeria values (13,'Pizza Italia','3.5');
 insert into pizzeria values (14,'Pizza Pepperoni','3.1');
 insert into pizzeria values (15,'Pizza Porodala','4.9');
 insert into pizzeria values (16,'Pizza Gavai','5.0')
+```
 
-
+```
 insert into person_visits values (20, 4, 1, '2022-01-01');
 insert into person_visits values (21, 2, 2, '2022-01-01');
 insert into person_visits values (22, 5, 1, '2022-01-02');
@@ -36,8 +38,9 @@ insert into person_visits values (26, 4, 6, '2022-02-08');
 insert into person_visits values (27, 5, 2, '2022-02-08');
 insert into person_visits values (28, 5, 6, '2022-02-09');
 insert into person_visits values (29, 6, 2, '2022-02-09');
+```
 
-
+```
 insert into person_order values (21,4, 7, '2022-01-10');
 insert into person_order values (22,5, 6, '2022-01-11');
 insert into person_order values (23,5, 7, '2022-01-12');
@@ -48,8 +51,9 @@ insert into person_order values (27,7, 4, '2022-01-16');
 insert into person_order values (28,8, 8, '2022-01-17');
 insert into person_order values (29,8, 14, '2022-01-18');
 insert into person_order values (30,9, 18, '2022-01-19');
+```
 
-
+```
 insert into person values (16, 'Anna', 15, 'female', 'Voronej');
 insert into person values (17, 'Andrey', 26, 'male', 'Novgorod');
 insert into person values (18, 'Kate', 37, 'female', 'Kazan');
@@ -60,7 +64,7 @@ insert into person values (22, 'Evgeniy', 24, 'male', 'Saint-Petersburg');
 insert into person values (23, 'Nataly', 30, 'female', 'Novosibirsk');
 insert into person values (24, 'Dmitriy', 18, 'male', 'Samara');
 insert into person values (25, 'Grigoriy', 18, 'male', 'Samara');
-
+```
 
 
 
