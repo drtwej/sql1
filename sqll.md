@@ -139,19 +139,9 @@ ORDER BY
 
  
 ```
-SELECT 
-  "name" 
-FROM 
-  "person" 
-WHERE 
-  (
-    SELECT 
-      "id" 
-    FROM 
-      "person_order" 
-    WHERE 
-      "menu_id" = 2
-  ) = "id"
+	SELECT name FROM person WHERE id IN (
+		SELECT id FROM person_order WHERE menu_id = 2 OR "menu_id"= 3 OR "menu_id"=5
+	)
 
 ```
 
