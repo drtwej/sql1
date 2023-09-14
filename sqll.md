@@ -121,3 +121,28 @@ SELECT "name" FROM "person" WHERE (SELECT "id" FROM "person_order" WHERE "menu_i
 ```
 SELECT EXISTS (SELECT "id" FROM "person" WHERE "name" = 'Kate')
 ```
+
+
+
+## 13.09.23 задание
+## 1 
+
+![image](https://github.com/drtwej/sql1/assets/144841894/9b72c16c-aba8-4a89-a282-2ea6490d8960)
+
+```
+SELECT "id", "pizza_name" FROM "menu" UNION
+SELECT "id", "name" FROM "person"
+ORDER BY "id", "pizza_name";
+```
+
+##2
+
+![image](https://github.com/drtwej/sql1/assets/144841894/36552a90-29f2-4e34-983f-d30e45f44485)
+
+```
+SELECT "pizza_name" FROM "menu"
+UNION
+SELECT "name" FROM "person"
+ORDER BY "pizza_name";
+```
+
