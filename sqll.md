@@ -71,7 +71,12 @@ insert into person values (25, 'Grigoriy', 18, 'male', 'Samara');
 ![image](https://github.com/drtwej/sql1/assets/144841894/9e87eff3-1679-4726-b4e0-7e9d6e81f5c1)
 
 ```
-SELECT ("name", "age", "address") FROM "person" WHERE "address" = 'Moscow'
+SELECT 
+  ("name", "age", "address") 
+FROM 
+  "person" 
+WHERE 
+  "address" = 'Moscow'
 ```
 
 ## 3 
@@ -80,8 +85,15 @@ SELECT ("name", "age", "address") FROM "person" WHERE "address" = 'Moscow'
 
 
 ```
-SELECT ("name", "age", "address") FROM "person" WHERE "gender" = 'female' and "address" = 'Moscow' ORDER BY "name"
-```
+SELECT 
+  ("name", "age", "address") 
+FROM 
+  "person" 
+WHERE 
+  "gender" = 'female' 
+  and "address" = 'Moscow' 
+ORDER BY 
+  "name"```
 
 
 
@@ -91,9 +103,16 @@ SELECT ("name", "age", "address") FROM "person" WHERE "gender" = 'female' and "a
 
 
 ```
-SELECT "name", "rating" FROM "pizzeria"
-WHERE "rating" > 3.5
-ORDER BY "rating" ASC;
+SELECT 
+  "name", 
+  "rating" 
+FROM 
+  "pizzeria" 
+WHERE 
+  "rating" > 3.5 
+ORDER BY 
+  "rating" ASC;
+
 ```
 
 ## 5
@@ -101,7 +120,17 @@ ORDER BY "rating" ASC;
 ![image](https://github.com/drtwej/sql1/assets/144841894/b983fcee-1a7d-42a3-ae90-942feaec0222)
 
 ```
-SELECT "id" FROM "person_visits" WHERE "visit_date" BETWEEN '2022-01-01' and '2022-01-06' OR "pizzeria_id" = 2 ORDER BY "id"
+SELECT 
+  "id" 
+FROM 
+  "person_visits" 
+WHERE 
+  "visit_date" BETWEEN '2022-01-01' 
+  and '2022-01-06' 
+  OR "pizzeria_id" = 2 
+ORDER BY 
+  "id"
+
 ```
 
 ## 6
@@ -110,7 +139,20 @@ SELECT "id" FROM "person_visits" WHERE "visit_date" BETWEEN '2022-01-01' and '20
 
  
 ```
-SELECT "name" FROM "person" WHERE (SELECT "id" FROM "person_order" WHERE "menu_id" = 2) = "id"
+SELECT 
+  "name" 
+FROM 
+  "person" 
+WHERE 
+  (
+    SELECT 
+      "id" 
+    FROM 
+      "person_order" 
+    WHERE 
+      "menu_id" = 2
+  ) = "id"
+
 ```
 
 ## 7
@@ -119,7 +161,16 @@ SELECT "name" FROM "person" WHERE (SELECT "id" FROM "person_order" WHERE "menu_i
 
 
 ```
-SELECT EXISTS (SELECT "id" FROM "person" WHERE "name" = 'Kate')
+SELECT 
+  EXISTS (
+    SELECT 
+      "id" 
+    FROM 
+      "person" 
+    WHERE 
+      "name" = 'Kate'
+  )
+
 ```
 
 
@@ -130,9 +181,21 @@ SELECT EXISTS (SELECT "id" FROM "person" WHERE "name" = 'Kate')
 ![image](https://github.com/drtwej/sql1/assets/144841894/9b72c16c-aba8-4a89-a282-2ea6490d8960)
 
 ```
-SELECT "id", "pizza_name" FROM "menu" UNION
-SELECT "id", "name" FROM "person"
-ORDER BY "id", "pizza_name";
+SELECT 
+  "id", 
+  "pizza_name" 
+FROM 
+  "menu" 
+UNION 
+SELECT 
+  "id", 
+  "name" 
+FROM 
+  "person" 
+ORDER BY 
+  "id", 
+  "pizza_name";
+
 ```
 
 ## 2
@@ -140,9 +203,17 @@ ORDER BY "id", "pizza_name";
 ![image](https://github.com/drtwej/sql1/assets/144841894/36552a90-29f2-4e34-983f-d30e45f44485)
 
 ```
-SELECT "pizza_name" FROM "menu"
-UNION
-SELECT "name" FROM "person"
-ORDER BY "pizza_name";
+SELECT 
+  "pizza_name" 
+FROM 
+  "menu" 
+UNION 
+SELECT 
+  "name" 
+FROM 
+  "person" 
+ORDER BY 
+  "pizza_name";
+
 ```
 
