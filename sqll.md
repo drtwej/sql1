@@ -192,12 +192,14 @@ ORDER BY id, pizza_name
 
 ## 2
 
-![image](https://github.com/drtwej/sql1/assets/144841894/36552a90-29f2-4e34-983f-d30e45f44485)
+![image](https://github.com/drtwej/sql1/assets/144841894/3f17198e-fe65-4b52-b4c6-3f7b5eb7b279)
+
 
 ```
-SELECT "pizza_name" FROM "menu" UNION 
-SELECT "name" FROM "person" 
-ORDER BY "pizza_name";
+SELECT  id, name, 'person' AS source FROM person
+UNION
+SELECT id, pizza_name, 'pizza' FROM menu ORDER BY source, name
+
 
 
 ```
