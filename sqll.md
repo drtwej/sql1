@@ -76,13 +76,19 @@ SELECT ("name", "age", "address") FROM "person" WHERE "address" = 'Moscow'
 
 ## 3 
 
+![image](https://github.com/drtwej/sql1/assets/144841894/ea8f5a3f-ec7e-41bf-a777-56f4eb87a54c)
 
 
 ```
 SELECT ("name", "age", "address") FROM "person" WHERE "gender" = 'female' and "address" = 'Moscow' ORDER BY "name"
 ```
 
+
+
 ## 4
+
+![image](https://github.com/drtwej/sql1/assets/144841894/3e18960b-273b-491d-883c-ed7a4c8ecc94)
+
 
 ```
 SELECT "name", "rating" FROM "pizzeria"
@@ -92,17 +98,26 @@ ORDER BY "rating" ASC;
 
 ## 5
 
+![image](https://github.com/drtwej/sql1/assets/144841894/b983fcee-1a7d-42a3-ae90-942feaec0222)
+
 ```
 SELECT "id" FROM "person_visits" WHERE "visit_date" BETWEEN '2022-01-01' and '2022-01-06' OR "pizzeria_id" = 2 ORDER BY "id"
 ```
 
 ## 6
+
+![image](https://github.com/drtwej/sql1/assets/144841894/9ebac4bb-6772-44e4-ac63-dfa1a8a2e0c1)
+
  
 ```
 SELECT "name" FROM "person" WHERE (SELECT "id" FROM "person_order" WHERE "menu_id" = 2) = "id"
 ```
 
 ## 7
+
+![image](https://github.com/drtwej/sql1/assets/144841894/472fd45f-9cbd-4d38-a1bd-1a70f3691f37)
+
+
 ```
 SELECT EXISTS (SELECT "id" FROM "person" WHERE "name" = 'Kate')
 ```
