@@ -67,11 +67,16 @@ insert into person values (25, 'Grigoriy', 18, 'male', 'Samara');
 ```
 
 ## 2 
+
+![image](https://github.com/drtwej/sql1/assets/144841894/9e87eff3-1679-4726-b4e0-7e9d6e81f5c1)
+
 ```
 SELECT ("name", "age", "address") FROM "person" WHERE "address" = 'Moscow'
 ```
 
 ## 3 
+
+
 
 ```
 SELECT ("name", "age", "address") FROM "person" WHERE "gender" = 'female' and "address" = 'Moscow' ORDER BY "name"
