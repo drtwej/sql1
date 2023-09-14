@@ -94,7 +94,7 @@ WHERE
   and "address" = 'Moscow' 
 ORDER BY 
   "name"```
-
+```
 
 
 ## 4
