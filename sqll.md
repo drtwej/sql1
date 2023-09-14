@@ -115,6 +115,18 @@ ORDER BY
 
 ```
 
+```
+SELECT 
+  "name", 
+  "rating" 
+FROM 
+  "pizzeria" 
+WHERE 
+  "rating" BETWEEN 4 AND 5
+ORDER BY 
+  "rating" ASC;
+```
+
 ## 5
 
 ![image](https://github.com/drtwej/sql1/assets/144841894/b983fcee-1a7d-42a3-ae90-942feaec0222)
