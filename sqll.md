@@ -135,7 +135,7 @@ SELECT "id", "name" FROM "person"
 ORDER BY "id", "pizza_name";
 ```
 
-##2
+## 2
 
 ![image](https://github.com/drtwej/sql1/assets/144841894/36552a90-29f2-4e34-983f-d30e45f44485)
 
