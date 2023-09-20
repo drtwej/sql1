@@ -207,3 +207,33 @@ SELECT  pizza_name, 'pizza' FROM menu ORDER BY source, name
 
 ```
 
+## 19.09.23
+
+
+## 1
+
+```
+SELECT person.id, person.name, "age", "gender", "address", pizzeria.id, pizzeria.name, "rating" FROM "person", "pizzeria"
+ORDER BY pizzeria.id ASC;
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/ce2d7979-419d-431a-9f93-82db492dd641)
+
+
+## 2
+
+```
+
+SELECT "order_date" AS action_date, "name" FROM "person_order", "person"
+WHERE "order_date" IN (SELECT "visit_date" FROM "person_visits") AND person_order.person_id = person.id
+ORDER BY "order_date" ASC;
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/82c1c465-c45b-460f-bd96-2177927b123d)
+
+
+
+
+
