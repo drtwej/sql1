@@ -234,6 +234,10 @@ ORDER BY "order_date" ASC;
 ![image](https://github.com/drtwej/sql1/assets/144841894/82c1c465-c45b-460f-bd96-2177927b123d)
 
 
+## 3
+
+```
 
 
 
+```
