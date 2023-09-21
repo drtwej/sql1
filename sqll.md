@@ -274,7 +274,7 @@ WHERE id NOT IN
 ![image](https://github.com/drtwej/sql1/assets/144841894/8b2d3ca6-98ea-4ac4-9979-5532dfe92098)
 
 
-##EXISTS
+## EXISTS
 
 ```
 SELECT name FROM pizzeria 
