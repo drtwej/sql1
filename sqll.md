@@ -260,3 +260,25 @@ ORDER BY order_date ASC, person_information ASC;
 ![image](https://github.com/drtwej/sql1/assets/144841894/e39627c2-6918-4891-9dd0-649b0b5e55ee)
 
 
+## 5
+
+## IN
+
+```
+
+SELECT name FROM pizzeria
+WHERE id NOT IN
+(SELECT pizzeria_id FROM person_visits);
+
+```
+![image](https://github.com/drtwej/sql1/assets/144841894/8b2d3ca6-98ea-4ac4-9979-5532dfe92098)
+
+
+##EXISTS
+
+```
+SELECT name FROM pizzeria 
+WHERE NOT EXISTS 
+(SELECT * FROM person_visits WHERE pizzeria.id = pizzeria_id);
+
+```
