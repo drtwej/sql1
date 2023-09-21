@@ -266,8 +266,8 @@ ORDER BY order_date ASC, person_information ASC;
 
 ```
 
-SELECT name FROM pizzeria
-WHERE id NOT IN
+SELECT pizzeria.name FROM pizzeria 
+WHERE pizzeria.id  IN 
 (SELECT pizzeria_id FROM person_visits);
 
 ```
