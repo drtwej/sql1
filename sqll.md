@@ -237,7 +237,13 @@ ORDER BY "order_date" ASC;
 ## 3
 
 ```
-
+SELECT order_date, (name || ' (age:' || age || ')') AS person_information FROM person_order
+JOIN person ON person_id = person.id
+ORDER BY order_date ASC, person_information ASC;
 
 
 ```
+
+
+![image](https://github.com/drtwej/sql1/assets/144841894/bc1b771e-0a90-437c-9ece-d485dca7fbff)
+
