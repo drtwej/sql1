@@ -244,6 +244,18 @@ ORDER BY order_date ASC, person_information ASC;
 
 ```
 
+## 4
+
+```
+
+SELECT order_date, (name || ' (age:' || "age" || ')') AS person_information FROM person_order NATURAL JOIN person
+ORDER BY order_date ASC, person_information ASC;
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/e39627c2-6918-4891-9dd0-649b0b5e55ee)
+
+
 
 ![image](https://github.com/drtwej/sql1/assets/144841894/bc1b771e-0a90-437c-9ece-d485dca7fbff)
 
