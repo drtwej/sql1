@@ -297,3 +297,19 @@ LEFT JOIN pizzeria ON pizzeria.id=menu.pizzeria_id
 
 ![image](https://github.com/drtwej/sql1/assets/144841894/afe12bf2-b67a-4505-b073-7c5f4ab79271)
 
+
+
+## 20.09.23
+
+## 00
+
+```
+
+SELECT name, rating FROM pizzeria
+LEFT JOIN person_visits ON pizzeria_id = pizzeria.id
+WHERE pizzeria_id IS NULL;
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/213f49c3-f374-4553-a97f-101f7d0039b2)
+
