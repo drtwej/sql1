@@ -282,3 +282,18 @@ WHERE NOT EXISTS
 (SELECT * FROM person_visits WHERE pizzeria.id = pizzeria_id);
 
 ```
+
+
+## 6
+
+```
+
+SELECT person.name,menu.pizza_name,pizzeria.name FROM person_order JOIN person ON person_order.person_id=person.id
+LEFT JOIN menu ON menu.id = person_order.menu_id
+LEFT JOIN pizzeria ON pizzeria.id=menu.pizzeria_id
+
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/afe12bf2-b67a-4505-b073-7c5f4ab79271)
+
