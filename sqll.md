@@ -313,3 +313,62 @@ WHERE pizzeria_id IS NULL;
 
 ![image](https://github.com/drtwej/sql1/assets/144841894/213f49c3-f374-4553-a97f-101f7d0039b2)
 
+
+## 1
+
+```
+
+SELECT missing_date::date
+FROM generate_series ('2022-01-01'::timestamp, '2022-01-10', '1 day') AS missing_date
+LEFT JOIN person_visits ON visit_date = missing_date
+WHERE "visit_date" IS NULL
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/4cffc869-0cd1-433c-8f66-119af5ac13de)
+
+
+## 2
+
+```
+SELECT COALESCE (person.name, '-') AS person_name, COALESCE (person_visits.visit_date, NULL) AS visit_date, COALESCE (pizzeria.name, '-') AS pizzeria_name 
+FROM person_visits
+RIGHT JOIN person ON person.id = person_visits.person_id
+FULL JOIN pizzeria ON pizzeria.id = person_visits.pizzeria_id
+ORDER BY person_name, visit_date, pizzeria_name;
+
+```
+
+
+![image](https://github.com/drtwej/sql1/assets/144841894/936d57d5-f3bd-47d1-95e8-c7f7cd9c1327)
+
+
+## 3
+
+```
+WITH m AS (
+	SELECT missing_date::date FROM generate_series ('2022-01-01'::timestamp, '2022-01-10', '1 day') AS missing_date
+)
+SELECT missing_date FROM m
+LEFT JOIN person_visits ON visit_date = missing_date
+WHERE visit_date IS NULL;
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/68656cdc-db41-41ba-8a48-08e2855eaf4c)
+
+
+## 4
+
+```
+SELECT menu.pizza_name, pizzeria.name AS pizzeria_name, menu.price FROM menu
+JOIN pizzeria ON pizzeria.id = menu.pizzeria_id
+WHERE pizza_name = 'pepperoni pizza' OR pizza_name = 'mushroom pizza'
+ORDER BY pizza_name, pizzeria_name;
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/c015fccd-b2fd-4313-997c-13bbe26fa710)
+
+
+
+
