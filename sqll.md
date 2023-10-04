@@ -371,4 +371,22 @@ ORDER BY pizza_name, pizzeria_name;
 
 
 
+## 04.10.23
+
+
+## 01
+
+
+```
+
+SELECT "id" FROM menu
+EXCEPT
+SELECT menu_id FROM person_order ORDER BY "id"
+
+```
+![image](https://github.com/drtwej/sql1/assets/144841894/e2f80156-dc37-4cd5-bc70-15fd51a0f774)
+
+
+
+
 
