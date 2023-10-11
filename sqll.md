@@ -387,6 +387,46 @@ SELECT menu_id FROM person_order ORDER BY "id"
 ![image](https://github.com/drtwej/sql1/assets/144841894/e2f80156-dc37-4cd5-bc70-15fd51a0f774)
 
 
+## 10.10.2023
+
+## 00
+
+```
+
+CREATE VIEW v_person_male
+AS
+SELECT name, gender FROM person 
+WHERE gender = 'male'
+
+```
+
+```
+
+CREATE VIEW v_person_female
+AS
+SELECT name, gender FROM person 
+WHERE gender = 'female'
+
+```
+
+
+
+
+## 01
+
+
+
+```
+SELECT * FROM v_person_male
+UNION ALL
+SELECT * FROM v_person_female
+ORDER BY name
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/27ac636d-d26e-46da-a0a6-0c72b1a0ec9a)
+
+
 
 
 
