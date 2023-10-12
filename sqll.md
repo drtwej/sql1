@@ -463,4 +463,20 @@ UNION ALL
 
 
 
+## 05
+
+```
+
+CREATE VIEW v_price_with_discount AS (
+SELECT pizza_name,  p.name, m.price, (m.price  * 0.9) AS
+discount_price FROM  person_order po
+JOIN person p ON p.id = po.person_id
+JOIN menu m ON m.id = po.menu_id )
+ORDER BY p.name , m.pizza_name
+
+```
+![image](https://github.com/drtwej/sql1/assets/144841894/70340734-6b7c-41d3-8570-b142f52cc7d7)
+
+
+
 
