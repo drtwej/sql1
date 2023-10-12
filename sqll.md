@@ -478,6 +478,16 @@ ORDER BY p.name , m.pizza_name
 ![image](https://github.com/drtwej/sql1/assets/144841894/70340734-6b7c-41d3-8570-b142f52cc7d7)
 
 
+## 06 
+CREATE materialized view mv_dmirty_visit
+SELECT p.name  FROM pizzeria p
+JOIN person_visits pv ON p.id = pv.pizzeria_id
+JOIN person pr ON pv.person_id = pr.id
+JOIN menu m ON m.id = p.id
+WHERE pr.name = 'dmitriy' AND pr.visit_date = '2022-01-08'
+AND price < OR = '800'
+
+
 
 
 
