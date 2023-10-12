@@ -427,6 +427,19 @@ ORDER BY name
 ![image](https://github.com/drtwej/sql1/assets/144841894/27ac636d-d26e-46da-a0a6-0c72b1a0ec9a)
 
 
+## 02
+
+```
+DROP VIEW IF EXISTS v_generated_dates;
+CREATE VIEW v_generated_dates AS
+	SELECT generate_series('01.01.2022', '31.01.2022', interval '1 day')::date AS generated_date
+	ORDER BY generated_date;
+SELECT * FROM v_generated_dates;
+
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/4cb1424c-dc82-421f-9e17-66a3a830e74e)
 
 
 
