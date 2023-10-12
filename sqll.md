@@ -442,4 +442,25 @@ SELECT * FROM v_generated_dates;
 ![image](https://github.com/drtwej/sql1/assets/144841894/4cb1424c-dc82-421f-9e17-66a3a830e74e)
 
 
+## 04
+
+```
+
+CREATE VIEW v_symetric_union AS (
+
+(SELECT person_id FROM view_r EXCEPT ALL (SELECT person_id FROM view_s))	
+UNION ALL
+(SELECT person_id FROM view_s EXCEPT ALL (SELECT person_id FROM view_r))
+	);
+	SELECT * FROM v_symetric_union
+
+
+
+```
+
+
+![image](https://github.com/drtwej/sql1/assets/144841894/a204e887-8947-41b4-83e4-8f719977b5c3)
+
+
+
 
