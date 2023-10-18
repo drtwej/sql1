@@ -489,6 +489,22 @@ AND price < OR = '800'
 
 
 
+## 18.10
+
+## 01
+
+```
+SELECT customer_id , order_date, quantity
+FROM orders 
+WHERE  quantity > 2 
+AND order_date BETWEEN '2023-07-17' AND '2023-10-17'
+ORDER BY order_date DESC
+
+```
+![image](https://github.com/drtwej/sql1/assets/144841894/368a6668-fd8d-4954-98ec-24ebaea80b12)
+
+
+
 
 
 
