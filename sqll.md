@@ -508,6 +508,29 @@ BETWEEN '2023-07-17' AND '2023-10-17'
 
 ```
 
+SELECT p.category, FLOOR (avg(o.quantity)) AS "averege order size" FROM orders o
+JOIN products p ON p.product_id = o.product_id
+WHERE p.price >= 50
+GROUP BY p.category
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/41bd6710-90cb-407e-8e54-fcfbc55d2e72)
+
+
+
+## 04
+
+```
+
+SELECT c.first_name, c.last_name, c.email FROM customers c
+JOIN orders o ON o.customer_id = c.customer_id
+JOIN products p ON p.product_id = o.product_id
+WHERE p.price > 1000 AND p.category != 'Electronics';
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/20f889b5-f424-402f-9cfd-ad8c1ecf66ce)
 
 
 
