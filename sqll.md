@@ -504,6 +504,10 @@ BETWEEN '2023-07-17' AND '2023-10-17'
 ![image](https://github.com/drtwej/sql1/assets/144841894/d023ae77-eafb-4784-a6e8-3cf2fca96209)
 
 
+## 02
+
+```
+
 
 
 
