@@ -519,6 +519,30 @@ GROUP BY p.category
 
 
 
+
+
+## 03
+
+```
+WITH tmp_shit AS (
+	SELECT p.product_id, SUM(p.price) AS "price_sum" FROM products p
+	GROUP BY p.product_id, p.price
+),
+global_avg_price AS (
+	SELECT AVG(p.price) FROM products p
+)
+
+SELECT c.first_name, c.last_name, c.email FROM customers c
+JOIN orders o ON o.customer_id = c.customer_id
+JOIN tmp_shit t ON t.product_id = o.product_id
+WHERE t.price_sum > (SELECT * FROM global_avg_price);
+
+```
+
+
+![Uploading image.png…]()
+
+
 ## 04
 
 ```
