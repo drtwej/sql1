@@ -540,7 +540,7 @@ WHERE t.price_sum > (SELECT * FROM global_avg_price);
 ```
 
 
-![Uploading image.png…]()
+![image](https://github.com/drtwej/sql1/assets/144841894/c1285183-7dbb-4356-a7ac-fc4add607331)
 
 
 ## 04
@@ -555,6 +555,32 @@ WHERE p.price > 1000 AND p.category != 'Electronics';
 ```
 
 ![image](https://github.com/drtwej/sql1/assets/144841894/20f889b5-f424-402f-9cfd-ad8c1ecf66ce)
+
+
+## 06
+
+```
+WITH customer_max_min AS (
+	SELECT o.customer_id, MAX(o.order_date) AS max_date, MIN(o.order_date) AS min_date FROM orders o
+	GROUP BY o.customer_id
+), 
+range_max_min AS(
+	SELECT cusxn.customer_id, (cusxn.max_date - cusxn.min_date) AS range FROM customer_max_min cusxn
+),
+
+min_p  AS (
+	SELECT cus.first_name, cus.last_name, MAX(o.order_date), MIN(o.order_date), MAX(rgxn.range) AS max_diff FROM orders o
+	JOIN range_max_min rgxn ON rgxn.customer_id = o.customer_id
+	JOIN customers cus ON cus.customer_id = o.customer_id
+	GROUP BY cus.first_name, cus.last_name
+)
+
+SELECT first_name, last_name FROM min_p WHERE max_diff = (SELECT MAX(max_diff) FROM min_p);
+
+```
+
+![Uploading image.png…]()
+
 
 
 
