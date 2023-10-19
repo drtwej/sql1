@@ -579,14 +579,22 @@ SELECT first_name, last_name FROM min_p WHERE max_diff = (SELECT MAX(max_diff) F
 
 ```
 
+![image](https://github.com/drtwej/sql1/assets/144841894/3989147a-b69b-4579-81b8-2b4db3145106)
+
+
+
+
+## 09
+
+```
+
+SELECT category, AVG(price) AS avg_price FROM products
+GROUP BY category
+ORDER BY avg_price
+
+
+```
 ![Uploading image.png…]()
-
-
-
-
-
-
-
 
 
 
