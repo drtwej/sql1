@@ -494,14 +494,14 @@ AND price < OR = '800'
 ## 01
 
 ```
-SELECT customer_id , order_date, quantity
-FROM orders 
-WHERE  quantity > 2 
-AND order_date BETWEEN '2023-07-17' AND '2023-10-17'
-ORDER BY order_date DESC
+SELECT c.first_name, c.last_name, c.email FROM customers c
+JOIN orders o ON o.customer_id = c.customer_id
+GROUP BY c.customer_id , o.order_date
+HAVING COUNT (c.customer_id) >= 2 AND o.order_date 
+BETWEEN '2023-07-17' AND '2023-10-17'
 
 ```
-![image](https://github.com/drtwej/sql1/assets/144841894/368a6668-fd8d-4954-98ec-24ebaea80b12)
+![image](https://github.com/drtwej/sql1/assets/144841894/d023ae77-eafb-4784-a6e8-3cf2fca96209)
 
 
 
