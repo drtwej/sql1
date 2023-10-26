@@ -614,7 +614,29 @@ ORDER BY count_of_visits DESC, p.id ASC
 ```
 
 
-![Uploading image.png…]()
+![image](https://github.com/drtwej/sql1/assets/144841894/28a93505-8834-4f62-ab79-5ca86e661be1)
+
+
+
+## 01
+
+```
+
+WITH tmp AS (
+	SELECT p.name, (SELECT COUNT(pv.id) FROM person_visits pv WHERE pv.person_id = p.id) AS "count_of_visits" FROM person p
+	ORDER BY count_of_visits DESC LIMIT 4
+)
+
+SELECT name FROM tmp ORDER BY name
+
+
+```
+
+![image](https://github.com/drtwej/sql1/assets/144841894/85c9dca6-2c81-4dd5-97c5-4c9662ed9478)
+
+
+
+
 
 
 
