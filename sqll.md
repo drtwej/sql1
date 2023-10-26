@@ -594,7 +594,31 @@ ORDER BY avg_price
 
 
 ```
+![image](https://github.com/drtwej/sql1/assets/144841894/69c28c06-23cc-4910-b1a4-e907e0c0a6b0)
+
+
+
+
+## 24.10.23
+
+
+## 00
+
+```
+
+SELECT p.id, (SELECT COUNT(pv.id) FROM person_visits pv 
+			  WHERE pv.person_id = p.id) AS "count_of_visits" FROM person p
+ORDER BY count_of_visits DESC, p.id ASC
+
+
+```
+
+
 ![Uploading image.png…]()
+
+
+
+
 
 
 
