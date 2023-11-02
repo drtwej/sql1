@@ -639,7 +639,9 @@ SELECT name FROM tmp ORDER BY name
 
 
 
+## Диаграмма базы данных
 
+![prokh drawio](https://github.com/drtwej/sql1/assets/144841894/bebb8baa-cec5-4589-8f91-0f4efa06e2a7)
 
 
 
