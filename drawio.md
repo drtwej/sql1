@@ -12,14 +12,6 @@ CREATE TABLE Users (
 
 
 
-CREATE TABLE Carts (
-    id   INT PRIMARY KEY,
-    user_id INT,
-    product_id INT,
-    products_quantity INT,
-    FOREIGN KEY (product_id) REFERENCES Products(id)
-);
-
 
 CREATE TABLE products (
     id INT PRIMARY KEY,
@@ -30,14 +22,83 @@ CREATE TABLE products (
 );
 
 
-CREATE TABLE Carts (
+ 
+ 
+ CREATE TABLE Carts (
     id   INT PRIMARY KEY,
     user_id INT,
     product_id INT,
     products_quantity INT,
+	FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (product_id) REFERENCES Products(id)
 );
 
+
+
+CREATE TABLE status (
+    id INT PRIMARY KEY,
+    status TEXT
+);
+
+
+CREATE TABLE orders (
+    id INT PRIMARY KEY,
+    user_id INT,
+    date DATE,
+    price FLOAT,
+    status_id INT,
+    title TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (status_id) REFERENCES status(id)
+);
+
+
+ CREATE TABLE Reviews (
+    id INT PRIMARY KEY,
+    user_id INT,
+    product_id INT,
+    rating INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+
+
+CREATE TABLE shipping (
+    id INT PRIMARY KEY,
+    order_id INT,
+    order_date DATE,
+    status_id INT,
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (status_id) REFERENCES status(id)
+);
+
+
+CREATE TABLE order_details (
+    id INT PRIMARY KEY,
+    order_id INT,
+    product_id INT,
+    quantity INT,
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+
+CREATE TABLE discounts (
+    id INT PRIMARY KEY,
+    title TEXT,
+    cost FLOAT,
+    discount_start DATE,
+    discount_finish DATE
+);
+
+
+CREATE TABLE promo (
+    id INT PRIMARY KEY,
+    title TEXT,
+    discount_id INT,
+    FOREIGN KEY (discount_id) REFERENCES discounts(id)
+);
 
 
 
