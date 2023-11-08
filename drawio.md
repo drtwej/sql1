@@ -102,4 +102,33 @@ CREATE TABLE promo (
 
 
 
+INSERT INTO users (id, username, email, address)
+VALUES 
+    (1, 'ИванПетров', 'ivanpetrov@example.com', 'ул. Ленина, 1'),
+    (2, 'МарияСмирнова', 'mariasmirnova@example.com', 'пр. Победы, 10'),
+    (3, 'АлексейИванович', 'alexeyivanovich@example.com', 'ул. Гагарина, 5'),
+    (4, 'ЕкатеринаСидорова', 'ekaterinasidorova@example.com', 'ул. Пушкина, 15'),
+    (5, 'АндрейВасильев', 'andreyvasiliev@example.com', 'пр. Мира, 20'),
+    (6, 'ОльгаКозлова', 'olgakozlova@example.com', 'ул. Советская, 7'),
+    (7, 'ДмитрийНовиков', 'dmitrynovid@example.com', 'ул. Володарского, 9'),
+    (8, 'НатальяМорозова', 'natalyamorozova@example.com', 'пр. Ленина, 25'),
+    (9, 'СергейПавлов', 'sergeypavlov@example.com', 'пр. Гагарина, 30'),
+    (10, 'АннаНиколаева', 'annanikolaeva@example.com', 'ул. Пушкина, 50'),
+    (11, 'ПавелЕгоров', 'pavelegorov@example.com', 'пр. Мира, 12'),
+    (12, 'МаринаКузнецова', 'marinakuznetsova@example.com', 'ул. Советская, 3'),
+    (13, 'ИгорьСоколов', 'igorsokolov@example.com', 'ул. Володарского, 27'),
+    (14, 'АллаПетрова', 'allapetrova@example.com', 'пр. Ленина, 8'),
+    (15, 'СеменИванов', 'semenivanov@example.com', 'пр. Гагарина, 40'),
+    (16, 'ЛарисаСмирнова', 'larisasmirnova@example.com', 'ул. Пушкина, 22'),
+    (17, 'ИльяВасильев', 'ilyavasiliev@example.com', 'пр. Мира, 18'),
+    (18, 'ТатьянаКозлова', 'tatyanakozlova@example.com', 'ул. Советская, 14'),
+    (19, 'ВладимирНовиков', 'vladimirnovikov@example.com', 'ул. Володарского, 36'),
+    (20, 'ЕленаМорозова', 'elenamorozova@example.com', 'пр. Ленина, 21');
+
+
+
+
+
+
+
 ```
