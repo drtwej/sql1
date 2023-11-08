@@ -9,4 +9,36 @@ CREATE TABLE Users (
     email VARCHAR(64),
     address VARCHAR(128)
 );
+
+
+
+CREATE TABLE Carts (
+    id   INT PRIMARY KEY,
+    user_id INT,
+    product_id INT,
+    products_quantity INT,
+    FOREIGN KEY (product_id) REFERENCES Products(id)
+);
+
+
+CREATE TABLE products (
+    id INT PRIMARY KEY,
+    title TEXT,
+    price FLOAT,
+    category_id INT,
+    quantity INT
+);
+
+
+CREATE TABLE Carts (
+    id   INT PRIMARY KEY,
+    user_id INT,
+    product_id INT,
+    products_quantity INT,
+    FOREIGN KEY (product_id) REFERENCES Products(id)
+);
+
+
+
+
 ```
