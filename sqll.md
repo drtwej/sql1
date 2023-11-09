@@ -641,7 +641,9 @@ SELECT name FROM tmp ORDER BY name
 
 ## 17.10.23
 
-```
+
+## 00
+```SQl
 CREATE TABLE person_discounts (
 	id INT PRIMARY KEY,
 	person_id INT,
