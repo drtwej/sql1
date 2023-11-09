@@ -642,66 +642,39 @@ SELECT name FROM tmp ORDER BY name
 ## 17.10.23
 
 
-## 00
-```SQl
+## 0
+```
 CREATE TABLE person_discounts (
 	id INT PRIMARY KEY,
-	person_id INT,
 	pizzeria_id INT,
+	person_id INT,
 	discount NUMERIC,
-	
 	CONSTRAINT fk_person_discounts_person_id FOREIGN KEY (person_id) REFERENCES person(id),
 	CONSTRAINT fk_person_discounts_pizzeria_id FOREIGN KEY (pizzeria_id) REFERENCES pizzeria(id)
 );
-
 ```
 
-
-
-## 04
-
-
+## 4
 ```
-DROP TABLE IF EXISTS person_discounts;
 CREATE TABLE person_discounts (
-	id bigint primary key,
-	person_id bigint NOT NULL,
-	pizzeria_id bigint NOT NULL,
-	discount numeric NOT NULL DEFAULT 0 CHECK (discount >=0 AND discount <= 100),
-	
-	constraint fk_person_discounts_person_id foreign key(person_id) references person(id),
-	constraint fk_person_discounts_pizzeria_id foreign key(pizzeria_id) references pizzeria(id)
+	id INT PRIMARY KEY,
+	pizzeria_id INT,
+	person_id INT,
+	discount NUMERIC,
+	discount NUMERIC NOT NULL DEFAULT 0 CHECK (discount >=0 AND discount <= 100),
+	CONSTRAINT fk_person_discounts_person_id FOREIGN KEY (person_id) REFERENCES person(id),
+	CONSTRAINT fk_person_discounts_pizzeria_id FOREIGN KEY (pizzeria_id) REFERENCES pizzeria(id)
 );
-
-
 ```
 
-
-## 06
-
+## 5
 ```
-DROP TABLE IF EXISTS person_discounts;
-CREATE TABLE person_discounts (
-	id bigint primary key,
-	person_id bigint NOT NULL,
-	pizzeria_id bigint NOT NULL,
-	discount numeric NOT NULL DEFAULT 0 CHECK (discount >= 0 AND discount <= 100),
-	
-	constraint fk_person_discounts_person_id foreign key(person_id) references person(id),
-	constraint fk_person_discounts_pizzeria_id foreign key(pizzeria_id) references pizzeria(id)
-);
+COMMENT ON TABLE person_discounts IS 'This table stores information about the discounts applied to individuals.';
+```
 
-DROP SEQUENCE IF EXISTS seq_person_discounts;
+## 6
+```
 CREATE SEQUENCE seq_person_discounts
 MINVALUE 1 START WITH 1 INCREMENT BY 1;
-
 ALTER TABLE person_discounts ALTER COLUMN id SET DEFAULT NEXTVAL('seq_person_discounts');
 ```
-
-
-
-
-
-
-
-
