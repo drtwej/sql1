@@ -658,6 +658,28 @@ CREATE TABLE person_discounts (
 
 
 
+## 04
+
+
+```
+DROP TABLE IF EXISTS person_discounts;
+CREATE TABLE person_discounts (
+	id bigint primary key,
+	person_id bigint NOT NULL,
+	pizzeria_id bigint NOT NULL,
+	discount numeric NOT NULL DEFAULT 0 CHECK (discount >=0 AND discount <= 100),
+	
+	constraint fk_person_discounts_person_id foreign key(person_id) references person(id),
+	constraint fk_person_discounts_pizzeria_id foreign key(pizzeria_id) references pizzeria(id)
+);
+
+
+```
+
+
+
+
+
 
 
 
