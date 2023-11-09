@@ -639,17 +639,20 @@ SELECT name FROM tmp ORDER BY name
 
 
 
-## Диаграмма базы данных
+## 17.10.23
 
-![prokh drawio](https://github.com/drtwej/sql1/assets/144841894/bebb8baa-cec5-4589-8f91-0f4efa06e2a7)
+```
+CREATE TABLE person_discounts (
+	id INT PRIMARY KEY,
+	person_id INT,
+	pizzeria_id INT,
+	discount NUMERIC,
+	
+	CONSTRAINT fk_person_discounts_person_id FOREIGN KEY (person_id) REFERENCES person(id),
+	CONSTRAINT fk_person_discounts_pizzeria_id FOREIGN KEY (pizzeria_id) REFERENCES pizzeria(id)
+);
 
-
-
-
-
-
-
-
+```
 
 
 
