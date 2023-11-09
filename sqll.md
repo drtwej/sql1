@@ -614,7 +614,8 @@ ORDER BY count_of_visits DESC, p.id ASC
 ```
 
 
-![image](https://github.com/drtwej/sql1/assets/144841894/28a93505-8834-4f62-ab79-5ca86e661be1)
+![image](https://github.com/drtwej/sql1/assets/144841894/b4de9139-ae33-4c5c-9465-54d8ff635302)
+
 
 
 
