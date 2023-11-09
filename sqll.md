@@ -632,9 +632,26 @@ SELECT name FROM tmp ORDER BY name
 
 ```
 
-![image](https://github.com/drtwej/sql1/assets/144841894/85c9dca6-2c81-4dd5-97c5-4c9662ed9478)
+![image](https://github.com/drtwej/sql1/assets/144841894/4cb44340-31f9-4c67-b58f-94240d598545)
 
 
+
+## 5 
+```
+SELECT DISTINCT person.name FROM person
+LEFT JOIN person_visits ON person_visits.person_id = person.id
+ORDER BY person.name
+```
+![image](https://github.com/drtwej/sql1/assets/144841894/56de27f7-a775-4077-bcec-921b9bbd083e)
+
+
+
+
+## 7
+```
+SELECT ROUND(AVG(pizzeria.rating), 4) AS "global_rating" FROM pizzeria
+```
+![image](https://github.com/drtwej/sql1/assets/144841894/e25850f1-9be6-4a2c-8947-2e7bfb279808)
 
 
 
