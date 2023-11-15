@@ -10,6 +10,12 @@ CREATE TABLE Users (
     address VARCHAR(128)
 );
 
+CREATE TABLE categories (
+    id INT PRIMARY KEY,
+    title TEXT,
+    parent_id INT,
+    FOREIGN KEY (parent_id) REFERENCES categories(id)
+);
 
 
 
