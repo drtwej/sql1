@@ -280,6 +280,51 @@ VALUES
 
 
 
+INSERT INTO order_details (id, order_id, product_id, quantity)
+VALUES
+    (1, 1, 1, 2),
+    (2, 2, 2, 3),
+    (3, 3, 3, 1),
+    (4, 4, 4, 4),
+    (5, 5, 5, 2),
+    (6, 6, 6, 1),
+    (7, 7, 7, 5),
+    (8, 8, 8, 3),
+    (9, 9, 9, 2),
+    (10, 10, 10, 4),
+    (11, 11, 11, 1),
+    (12, 12, 12, 3),
+    (13, 13, 13, 5),
+    (14, 14, 14, 2),
+    (15, 15, 15, 4),
+    (16, 16, 16, 3),
+    (17, 17, 17, 2),
+    (18, 18, 18, 4),
+    (19, 19, 19, 1),
+    (20, 20, 20, 3);
+
+
+
+
+INSERT INTO discounts (id, title, cost, discount_start, discount_finish)
+VALUES
+    (1, 'Summer Sale', 10.0, '2022-06-01', '2022-06-30'),
+    (2, 'Holiday Discount', 15.5, '2022-12-15', '2022-12-31'),
+    (3, 'New Year Sale', 20.0, '2022-12-28', '2023-01-05');
+
+
+INSERT INTO promo (id, title, discount_id)
+VALUES
+    (1, 'Summer Promo', 1),
+    (2, 'Holiday Special', 2),
+    (3, 'New Year Promo', 3);
+
+
+
+
+
+
+
 
 
 
