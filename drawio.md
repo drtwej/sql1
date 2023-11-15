@@ -326,7 +326,12 @@ VALUES
     (3, 'New Year Promo', 3);
 
 
-
+INSERT INTO categories (id, title, parent_id) VALUES
+(1, 'Мужская одежда', NULL),
+(2, 'Женская одежда', NULL),
+(3, 'Детская одежда', NULL),
+(4, 'Обувь', NULL),
+(5, 'Аксессуары', NULL);
 
 
 
