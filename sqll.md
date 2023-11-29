@@ -745,3 +745,39 @@ BEFORE INSERT ON carts
 FOR EACH ROW
 EXECUTE FUNCTION tr_cart_insert_function();
 ```
+
+
+## trigg 3
+
+```
+-- Создаем таблицу для хранения истории изменений цен
+CREATE TABLE IF NOT EXISTS price_history (
+    product_id INT,
+    old_price DECIMAL(10, 2),
+    new_price DECIMAL(10, 2),
+    change_date TIMESTAMP
+);
+
+-- Создаем функцию для триггера
+CREATE OR REPLACE FUNCTION tr_products_price_update_function()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Проверяем, что цена изменилась
+    IF NEW.price <> OLD.price THEN
+        -- Записываем историю изменений цены
+        INSERT INTO price_history (product_id, old_price, new_price, change_date)
+        VALUES (NEW.id, OLD.price, NEW.price, NOW());
+    END IF;
+
+    -- Возвращаем NEW, чтобы триггер продолжил выполнение
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Создаем триггер
+CREATE TRIGGER tr_products_price_update
+BEFORE UPDATE ON products
+FOR EACH ROW
+EXECUTE FUNCTION tr_products_price_update_function();
+
+````
