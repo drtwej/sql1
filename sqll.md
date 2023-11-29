@@ -744,6 +744,10 @@ CREATE TRIGGER tr_cart_insert
 BEFORE INSERT ON carts
 FOR EACH ROW
 EXECUTE FUNCTION tr_cart_insert_function();
+
+
+
+Этот триггер будет срабатывать перед вставкой новой строки в таблицу carts. Если хотя бы одно из значений user_id, product_id или products_quantity равно NULL, то триггер вызовет ошибку и не позволит вставить запись.
 ```
 
 
@@ -780,4 +784,5 @@ BEFORE UPDATE ON products
 FOR EACH ROW
 EXECUTE FUNCTION tr_products_price_update_function();
 
+Этот триггер отслеживает изменения в цене (price) в таблице products и записывает историю изменений в таблицу price_history. Пожалуйста, учтите, что вам, возможно, нужно адаптировать этот код в зависимости от конкретных требований вашего приложения.
 ````
