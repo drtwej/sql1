@@ -721,3 +721,27 @@ select * from orders
 INSERT INTO order_details VALUES (22, 1, 5, 2);
 INSERT INTO order_details VALUES (23, 1, 1, 1);
 ```
+
+
+## trigg 2
+```
+CREATE OR REPLACE FUNCTION tr_cart_insert_function()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Проверяем, что значения не равны NULL
+    IF NEW.user_id IS NULL OR NEW.product_id IS NULL OR NEW.products_quantity IS NULL THEN
+        -- Вызываем ошибку, если одно из значений равно NULL
+        RAISE EXCEPTION 'Нельзя вставлять записи с нулевыми значениями';
+    END IF;
+
+    -- Возвращаем NEW, чтобы триггер продолжил выполнение
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Создаем триггер
+CREATE TRIGGER tr_cart_insert
+BEFORE INSERT ON carts
+FOR EACH ROW
+EXECUTE FUNCTION tr_cart_insert_function();
+```
