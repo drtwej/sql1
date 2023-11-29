@@ -770,7 +770,7 @@ BEGIN
     IF NEW.price <> OLD.price THEN
         -- Записываем историю изменений цены
         INSERT INTO price_history (product_id, old_price, new_price, change_date)
-        VALUES (NEW.id, OLD.price, NEW.price, NOW());
+        VALUES (NEW.id, OLD.price, NEW.price, NOW()::date);
     END IF;
 
     -- Возвращаем NEW, чтобы триггер продолжил выполнение
@@ -783,6 +783,4 @@ CREATE TRIGGER tr_products_price_update
 BEFORE UPDATE ON products
 FOR EACH ROW
 EXECUTE FUNCTION tr_products_price_update_function();
-
-Этот триггер отслеживает изменения в цене (price) в таблице products и записывает историю изменений в таблицу price_history. Пожалуйста, учтите, что вам, возможно, нужно адаптировать этот код в зависимости от конкретных требований вашего приложения.
 ````
