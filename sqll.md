@@ -696,3 +696,28 @@ CREATE SEQUENCE seq_person_discounts
 MINVALUE 1 START WITH 1 INCREMENT BY 1;
 ALTER TABLE person_discounts ALTER COLUMN id SET DEFAULT NEXTVAL('seq_person_discounts');
 ```
+
+
+
+## trigg 
+```
+DROP function if exists fnc_before_update_orders() CASCADE;
+
+create or replace function fnc_before_update_orders() returns trigger as $Before_Update_price$
+begin
+	UPDATE orders
+	SET price = price + NEW.quantity * (SELECT price FROM products WHERE products.id = NEW.product_id)
+	WHERE orders.id = NEW.order_id;
+	return NULL;
+end;
+$Before_Update_price$ language plpgsql;
+
+CREATE TRIGGER Before_Update_price
+AFTER INSERT ON order_details
+FOR EACH ROW EXECUTE FUNCTION fnc_before_update_orders();
+
+select * from orders
+
+INSERT INTO order_details VALUES (22, 1, 5, 2);
+INSERT INTO order_details VALUES (23, 1, 1, 1);
+```
