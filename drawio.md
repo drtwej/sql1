@@ -360,7 +360,7 @@ select * from orders
 
 INSERT INTO order_details VALUES (22, 1, 5, 2);
 INSERT INTO order_details VALUES (23, 1, 1, 1);
-
+```
 ```
 CREATE OR REPLACE FUNCTION tr_cart_insert_function()
 RETURNS TRIGGER AS $$
