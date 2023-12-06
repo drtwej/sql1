@@ -334,17 +334,90 @@ INSERT INTO categories (id, title, parent_id) VALUES
 (3, 'Детская одежда', NULL),
 (4, 'Обувь', NULL),
 (5, 'Аксессуары', NULL);
+```
+
+## Создание триггеров и функций
 
 
 
+```
+DROP function if exists fnc_before_update_orders() CASCADE;
+
+create or replace function fnc_before_update_orders() returns trigger as $Before_Update_price$
+begin
+	UPDATE orders
+	SET price = price + NEW.quantity * (SELECT price FROM products WHERE products.id = NEW.product_id)
+	WHERE orders.id = NEW.order_id;
+	return NULL;
+end;
+$Before_Update_price$ language plpgsql;
+
+CREATE TRIGGER Before_Update_price
+AFTER INSERT ON order_details
+FOR EACH ROW EXECUTE FUNCTION fnc_before_update_orders();
+
+select * from orders
+
+INSERT INTO order_details VALUES (22, 1, 5, 2);
+INSERT INTO order_details VALUES (23, 1, 1, 1);
+
+```
+CREATE OR REPLACE FUNCTION tr_cart_insert_function()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Проверяем, что значения не равны NULL
+    IF NEW.user_id IS NULL OR NEW.product_id IS NULL OR NEW.products_quantity IS NULL THEN
+        -- Вызываем ошибку, если одно из значений равно NULL
+        RAISE EXCEPTION 'Нельзя вставлять записи с нулевыми значениями';
+    END IF;
+
+    -- Возвращаем NEW, чтобы триггер продолжил выполнение
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Создаем триггер
+CREATE TRIGGER tr_cart_insert
+BEFORE INSERT ON carts
+FOR EACH ROW
+EXECUTE FUNCTION tr_cart_insert_function();
 
 
 
+Этот триггер будет срабатывать перед вставкой новой строки в таблицу carts.
+Если хотя бы одно из значений user_id, product_id или products_quantity равно NULL, то триггер вызовет ошибку и не позволит вставить запись.
+```
 
 
+```
+-- Создаем таблицу для хранения истории изменений цен
+CREATE TABLE IF NOT EXISTS price_history (
+    product_id INT,
+    old_price DECIMAL(10, 2),
+    new_price DECIMAL(10, 2),
+    change_date TIMESTAMP
+);
 
+-- Создаем функцию для триггера
+CREATE OR REPLACE FUNCTION tr_products_price_update_function()
+RETURNS TRIGGER AS $$
+BEGIN
+    -- Проверяем, что цена изменилась
+    IF NEW.price <> OLD.price THEN
+        -- Записываем историю изменений цены
+        INSERT INTO price_history (product_id, old_price, new_price, change_date)
+        VALUES (NEW.id, OLD.price, NEW.price, NOW()::date);
+    END IF;
 
+    -- Возвращаем NEW, чтобы триггер продолжил выполнение
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
 
-
+-- Создаем триггер
+CREATE TRIGGER tr_products_price_update
+BEFORE UPDATE ON products
+FOR EACH ROW
+EXECUTE FUNCTION tr_products_price_update_function();
 
 ```
