@@ -105,8 +105,10 @@ CREATE TABLE promo (
     FOREIGN KEY (discount_id) REFERENCES discounts(id)
 );
 
+```
+## Вставка записей в таблицы
 
-
+```
 INSERT INTO users (id, username, email, address)
 VALUES 
     (1, 'ИванПетров', 'ivanpetrov@example.com', 'ул. Ленина, 1'),
