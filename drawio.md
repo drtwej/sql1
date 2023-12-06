@@ -421,3 +421,22 @@ FOR EACH ROW
 EXECUTE FUNCTION tr_products_price_update_function();
 
 ```
+```
+CREATE OR REPLACE FUNCTION calculate_order_total()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE orders
+    SET total_amount = 
+        (SELECT COALESCE(SUM(price * quantity), 0) 
+        FROM order_details
+        WHERE order_details.order_id = NEW.order_id)
+    WHERE orders.id = NEW.order_id;
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER update_order_total
+AFTER INSERT OR DELETE ON order_details
+FOR EACH ROW
+EXECUTE FUNCTION calculate_order_total();
+```
