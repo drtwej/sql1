@@ -422,21 +422,22 @@ EXECUTE FUNCTION tr_products_price_update_function();
 
 ```
 ```
-CREATE OR REPLACE FUNCTION calculate_order_total()
+CREATE OR REPLACE FUNCTION log_review_insert()
 RETURNS TRIGGER AS $$
 BEGIN
-    UPDATE orders
-    SET total_amount = 
-        (SELECT COALESCE(SUM(price * quantity), 0) 
-        FROM order_details
-        WHERE order_details.order_id = NEW.order_id)
-    WHERE orders.id = NEW.order_id;
-    RETURN NULL;
+    INSERT INTO review_log (user_id, product_id, rating, insert_timestamp)
+    VALUES (NEW.user_id, NEW.product_id, NEW.rating, NOW());
+    RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER update_order_total
-AFTER INSERT OR DELETE ON order_details
+CREATE TRIGGER tr_log_review_insert
+AFTER INSERT ON Reviews
 FOR EACH ROW
-EXECUTE FUNCTION calculate_order_total();
+EXECUTE FUNCTION log_review_insert();
+
+
+--Этот триггер создает запись в таблице review_log при каждой вставке нового отзыва в таблицу Reviews,
+ фиксируя пользователя, продукт, рейтинг и временную метку вставки.
 ```
+
