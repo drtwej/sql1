@@ -784,3 +784,7 @@ BEFORE UPDATE ON products
 FOR EACH ROW
 EXECUTE FUNCTION tr_products_price_update_function();
 ````
+
+
+
+## t
